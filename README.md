@@ -59,7 +59,9 @@ You will be running your tests in one terminal and debugging in the other. As yo
 Edit the `ReadMe` file with your answers to the questions below.
 
 1. In your own words, define closure (1-2 sentences).
+Closures in JS are combinations of functions enclosed with references to its surrounding state. They are created whenever a function is created, it is important to understand scope because scope allows you to store data in a separate scope and share it only when necessary.
 2. Study the following code, then answer the questions below.
+
 
 ```js
 function personalDice(name){
@@ -80,9 +82,11 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+line 75 is the closure because it is the end of the function.
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+The parameter will remain the same. calling for zoeRoll(); would change the answer.
 c. What is the lexical scope of `newRoll`? 
-
+The lexical scope is dansRoll.
 
 ### Task 3 - Stretch Goals
 
