@@ -51,6 +51,10 @@ let count = 0;
 function counter2() {
   return count++;
 }
+console.log(`Task 1.1`, 'Counter 1 is the lexical scope and counter 2 is a function ');
+console.log('Task 1.2', 'Counter 1 uses a closure because it invokes the function');
+console.log('Task 1.3', 'Counter 1 works better when starting from 1 and counter 2 works better when starting with the answer for counter 1');
+
 
 
 /* ⚾️⚾️⚾️ Task 2: inning() ⚾️⚾️⚾️
@@ -62,10 +66,10 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+  return Math.floor(Math.random() * Math.floor (2));
 }
-
+console.log('Task 2' , inning(1));
 
 /* ⚾️⚾️⚾️ Task 3: finalScore() ⚾️⚾️⚾️
 Use the finalScore function below to do the following:
@@ -81,8 +85,28 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function baseballGame(){
+  return Math.floor(Math.random() * Math.floor(2));
+ 
+}
+function finalScore(scorecb){
+ return{
+   Home: scorecb(),
+   Away: scorecb()
+ }
+}
+function totalGameScore(scorecb, gamecb){
+ const totalGame =[];
+ let homeScore =0;
+ let awayScore =0;
+
+ for(let i=0; i< 9; i++){
+   const currentScore =gamecb(scorecb);
+   homeScore = homeScore + currentScore.Home;
+   awayScore = awayScore + currentScore.Away;
+   totalGame.push(`Inning ${i + 1}: Away ${awayScore} - Home ${homeScore}`);
+ }
+ return totalGame;
 }
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
@@ -90,9 +114,9 @@ Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore(/*Your Code Here */) {
-  /*Your Code Here */
-}
+  function getInningScore(inning) {
+    return {"Home": inning(), "Away": inning()};
+  }
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
